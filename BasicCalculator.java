@@ -1,18 +1,17 @@
-package LeetCode3;
 import java.util.*;
 public class BasicCalculator {
-    static int stringToInteger(String str){
-        int ans = 0;
+    static double stringToInteger(String str){
+        double ans = 0;
         for(int i=0;i<str.length();i++){
             ans+=(str.charAt(str.length()-i-1)-48)*Math.pow(10,i);
         }
         return ans;
     }
-    public static int calculate(String s) {
+    public static double calculate(String s) {
         if(s.length()==0){
             return 0;
         }
-        ArrayList<Integer> num = new ArrayList<>();
+        ArrayList<Double> num = new ArrayList<>();
         ArrayList<Character> oper = new ArrayList<>();
         for(int i=0;i<s.length();i++) {
             if (s.charAt(i) != '(') {
@@ -49,7 +48,7 @@ public class BasicCalculator {
         //Division
         for(int i=0;i<oper.size();){
             if(oper.get(i)=='/'){
-                int temp = num.get(i)/num.get(i+1);
+                double temp = num.get(i)/num.get(i+1);
                 oper.remove(i);
                 num.remove(i);
                 num.set(i,temp);
@@ -60,7 +59,7 @@ public class BasicCalculator {
         //Multiplication
         for(int i=0;i<oper.size();){
             if(oper.get(i)=='*'){
-                int temp = num.get(i)*num.get(i+1);
+                double temp = num.get(i)*num.get(i+1);
                 oper.remove(i);
                 num.remove(i);
                 num.set(i,temp);
@@ -71,7 +70,7 @@ public class BasicCalculator {
         //Subtraction
         for(int i=0;i<oper.size();){
             if(oper.get(i)=='-'){
-                int temp = num.get(i)-num.get(i+1);
+                double temp = num.get(i)-num.get(i+1);
                 oper.remove(i);
                 num.remove(i);
                 num.set(i,temp);
@@ -82,7 +81,7 @@ public class BasicCalculator {
         //Addition
         for(int i=0;i<oper.size();){
             if(oper.get(i)=='+'){
-                int temp = num.get(i)+num.get(i+1);
+                double temp = num.get(i)+num.get(i+1);
                 oper.remove(i);
                 num.remove(i);
                 num.set(i,temp);
